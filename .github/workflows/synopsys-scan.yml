@@ -19,17 +19,17 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
        
-    # NPM Install
-    - name: NPM Install
-      run: |
-        npm install
-       
     # Perform Polaris Analysis      
     - name: Polaris (SAST)
       run: |
         curl -fLOsS $POLARIS_SERVER_URL/api/tools/polaris_cli-linux64.zip
         unzip -d /tmp -jo polaris_cli-linux64.zip
         /tmp/polaris --co project.name=sig-demo/juice-shop --co project.branch=main analyze -w
+  
+    # NPM Install
+    - name: NPM Install
+      run: |
+        npm install
         
     # Perform Software Composition Analysis             
     - name: Black Duck (SCA)
