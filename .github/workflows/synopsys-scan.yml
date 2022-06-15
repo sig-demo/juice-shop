@@ -19,6 +19,11 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
        
+    # NPM Install
+    - name: NPM Install
+      run: |
+        npm install
+       
     # Perform Polaris Analysis      
     - name: Polaris (SAST)
       run: |
