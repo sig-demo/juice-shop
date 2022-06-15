@@ -1,0 +1,53 @@
+version: "1"
+project:
+  organization: demo
+  name: juice-shop/juice-shop
+  branch: master
+  revision:
+    name: 87a6365c283e4176c32e654bd9a69f7e9c1a5959
+    date: "2022-05-22T13:43:57+02:00"
+  projectDir: D:\Apps\Javascript\juice-shop
+  captureDir: D:\Apps\Javascript\juice-shop\.synopsys\polaris
+capture:
+  fileSystem:
+    ears:
+      extensions: [ear]
+      files:
+      - directory: .
+    java:
+      files:
+      - directory: .
+    javascript:
+      files:
+      - directory: .
+      - excludeRegex: node_modules|bower_components|vendor
+    php:
+      files:
+      - directory: .
+    python:
+      files:
+      - directory: .
+    ruby:
+      files:
+      - directory: .
+    typescript:
+      files:
+      - directory: .
+    wars:
+      extensions: [war]
+      files:
+      - directory: .
+analyze:
+  mode: central
+  coverity:
+    caching:
+      dlls: enable
+      jars: enable
+      pfi: enable
+      rws: disable
+      tu-caching: disable
+    usebudaforjavadotnet: disable
+install:
+  coverity:
+    version: 2022.3.1
+serverUrl: https://demo.polaris.synopsys.com
