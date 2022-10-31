@@ -19,14 +19,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}
 
-    - name: npm install, build and test
-      run: |
-        npm install
     
     # Perform Polaris Analysis
     - name: Polaris (SAST)
@@ -34,6 +27,12 @@ jobs:
         curl -fLOsS $POLARIS_SERVER_URL/api/tools/polaris_cli-linux64.zip
         unzip -d /tmp -jo polaris_cli-linux64.zip
         /tmp/polaris analyze -w
+        
+        
+    - name: npm install, build and test
+      run: |
+        npm install
+        
     # Perform Software Composition Analysis             
     - name: Black Duck (SCA)
       run: |
